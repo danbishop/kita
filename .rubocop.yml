@@ -1,0 +1,13 @@
+---
+# Show URLs for each cop
+AllCops:
+  DisplayStyleGuide: true
+
+# Disable block-length checks for rspec
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*.rb'
+
+# Extend permitted line length
+Layout/LineLength:
+  Max: 120
