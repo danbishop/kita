@@ -4,7 +4,7 @@ summary: Japanese learning tool
 description: |
   A simple tool to help Japanese language learners.
 
-confinement: devmode
+confinement: strict
 base: core18
 grade: stable
 license: GPL-3.0+
