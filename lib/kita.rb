@@ -1,5 +1,11 @@
 # frozen_string_literal: true
 
+require_relative 'kita/audio'
+require_relative 'kita/config'
+require_relative 'kita/hiragana'
+require_relative 'kita/katakana'
+require_relative 'kita/version'
+
 module Kita
   # Main application class
   class Application < Gtk::Application
@@ -103,9 +109,8 @@ module Kita
     end
 
     def new_question
-      type = @types.sample
       reset_buttons
-      question = type.question
+      question = @types.sample.question
       question_label = @builder.get_object('question')
       question_label.set_markup("<span font='72'>#{question[:question]}</span>")
       buttons = %w[a b c d]

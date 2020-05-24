@@ -1,0 +1,22 @@
+name: kita
+version: "0.5.0"
+summary: Japanese learning tool
+description: |
+  A simple tool to help Japanese language learners.
+
+confinement: devmode
+base: core18
+
+parts:
+  kita:
+    source: .
+    plugin: ruby
+    gems:
+      - bundler
+    override-build: |
+      snapcraftctl build
+    build-packages:
+      - git
+apps:
+  kita:
+    command: bin/kita
