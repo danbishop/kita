@@ -1,11 +1,13 @@
 name: kita
-version: "0.5.2"
+version: '0.5.2'
 summary: Japanese learning tool
 description: |
   A simple tool to help Japanese language learners.
 
 confinement: devmode
 base: core18
+grade: stable
+license: GPL-3.0+
 
 parts:
   kita:
@@ -13,49 +15,31 @@ parts:
     plugin: ruby
     gems:
       - kita
-    ruby-version: '2.7.0'
+    ruby-version: 2.7.0
     stage-packages:
-      - libatk-bridge2.0-0
-      - libatk1.0-0
-      - libatspi2.0-0
-      - libcairo-gobject2
-      - libcairo2
-      - libdatrie1
-      - libepoxy0
-      - libfontconfig1
-      - libfreetype6
-      - libgdk-pixbuf2.0-0
-      - libgirepository-1.0-1
-      - libgraphite2-3
+      - gobject-introspection
+      - gir1.2-atk-1.0
+      - gir1.2-atspi-2.0
+      - gir1.2-freedesktop
+      - gir1.2-gdkpixbuf-2.0
+      - gir1.2-glib-2.0
+      - gir1.2-gtk-3.0
+      - gir1.2-pango-1.0
+      - adwaita-icon-theme
+      - libcanberra-gtk3-0
       - libgstreamer1.0-0
-      - libgtk-3-0
-      - libharfbuzz0b
-      - libpango-1.0-0
-      - libpangocairo-1.0-0
-      - libpangoft2-1.0-0
-      - libpixman-1-0
-      - libpng16-16
-      - libthai0
-      - libwayland-client0
-      - libwayland-cursor0
-      - libwayland-egl1
-      - libx11-6
-      - libxau6
-      - libxcb-render0
-      - libxcb-shm0
-      - libxcb1
-      - libxcomposite1
-      - libxcursor1
-      - libxdamage1
-      - libxdmcp6
-      - libxext6
-      - libxfixes3
-      - libxi6
-      - libxinerama1
-      - libxkbcommon0
-      - libxrandr2
-      - libxrender1
+      - libglib2.0-0
+      - libgirepository-1.0-1
+      - gir1.2-gstreamer-1.0
+      - ruby-gnome2
 
 apps:
   kita:
     command: bin/kita
+    extensions: [gnome-3-28]
+    plugs:
+      - desktop
+      - wayland
+      - home
+      - audio-playback
+    common-id: uk.danbishop.kita
