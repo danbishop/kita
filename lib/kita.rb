@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-
+require 'gtk3'
 require_relative 'kita/audio'
 require_relative 'kita/config'
 require_relative 'kita/hiragana'

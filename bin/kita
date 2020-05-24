@@ -1,8 +1,6 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-require 'gtk3'
-
 application_root_path = File.expand_path(__dir__)
 require File.join(application_root_path, '../lib/kita.rb')
 
