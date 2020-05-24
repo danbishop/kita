@@ -1,5 +1,5 @@
 name: kita
-version: "0.5.0"
+version: "0.5.2"
 summary: Japanese learning tool
 description: |
   A simple tool to help Japanese language learners.
@@ -13,6 +13,49 @@ parts:
     plugin: ruby
     gems:
       - kita
+    ruby-version: '2.7.0'
+    stage-packages:
+      - libatk-bridge2.0-0
+      - libatk1.0-0
+      - libatspi2.0-0
+      - libcairo-gobject2
+      - libcairo2
+      - libdatrie1
+      - libepoxy0
+      - libfontconfig1
+      - libfreetype6
+      - libgdk-pixbuf2.0-0
+      - libgirepository-1.0-1
+      - libgraphite2-3
+      - libgstreamer1.0-0
+      - libgtk-3-0
+      - libharfbuzz0b
+      - libpango-1.0-0
+      - libpangocairo-1.0-0
+      - libpangoft2-1.0-0
+      - libpixman-1-0
+      - libpng16-16
+      - libthai0
+      - libwayland-client0
+      - libwayland-cursor0
+      - libwayland-egl1
+      - libx11-6
+      - libxau6
+      - libxcb-render0
+      - libxcb-shm0
+      - libxcb1
+      - libxcomposite1
+      - libxcursor1
+      - libxdamage1
+      - libxdmcp6
+      - libxext6
+      - libxfixes3
+      - libxi6
+      - libxinerama1
+      - libxkbcommon0
+      - libxrandr2
+      - libxrender1
+
 apps:
   kita:
     command: bin/kita
