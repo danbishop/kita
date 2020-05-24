@@ -1,6 +1,7 @@
 vendor
 *~
 *.gem
+*.snap
 /.bundle/
 /.yardoc
 /_yardoc/
