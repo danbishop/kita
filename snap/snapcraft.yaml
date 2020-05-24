@@ -39,7 +39,6 @@ apps:
     plugs:
       - desktop
       - wayland
-      - home
       - audio-playback
-      - pulseaudio
+      # - pulseaudio
     common-id: uk.danbishop.kita
