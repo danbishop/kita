@@ -22,7 +22,7 @@ class Audio
 
   def play(uri)
     @playbin.stop
-    @playbin.uri = Gst.filename_to_uri("#{RootPath}/sounds/#{uri}.ogg")
+    p @playbin.uri = Gst.filename_to_uri("#{RootPath}/sounds/#{uri}.ogg")
     @playbin.play
   end
 
