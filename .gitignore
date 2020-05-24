@@ -1,5 +1,6 @@
 vendor
 *~
+*.gem
 /.bundle/
 /.yardoc
 /_yardoc/

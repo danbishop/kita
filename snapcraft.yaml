@@ -12,11 +12,7 @@ parts:
     source: .
     plugin: ruby
     gems:
-      - bundler
-    override-build: |
-      snapcraftctl build
-    build-packages:
-      - git
+      - kita
 apps:
   kita:
     command: bin/kita
