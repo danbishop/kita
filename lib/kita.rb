@@ -37,6 +37,7 @@ module Kita
 
     def setup_about_box
       about_box = @builder.get_object('about_box')
+      about_box.version = VERSION
       about_button = @builder.get_object('menu_about')
       about_button.signal_connect('clicked') do
         about_box.run

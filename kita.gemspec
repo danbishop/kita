@@ -7,6 +7,7 @@ Gem::Specification.new do |spec|
   spec.version       = Kita::VERSION
   spec.authors       = ['Dan Bishop']
   spec.email         = ['d@nbishop.uk']
+  spec.license       = 'GPLv3+'
 
   spec.summary       = 'A Japanese kana learning tool.'
   spec.description   = 'A simple tool to help Japanese language learners with hiragana and katakana.'
@@ -26,10 +27,10 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'config', '~> 2.2'
-  spec.add_dependency 'gir_ffi', '~> 0.15.2'
-  spec.add_dependency 'gstreamer', '~> 3.4'
-  spec.add_dependency 'gtk3', '~> 3.4'
-  spec.add_dependency 'mojinizer', '~> 0.2.2'
-  spec.add_dependency 'pango', '~> 3.4'
+  spec.add_runtime_dependency 'config', '~> 2.2'
+  spec.add_runtime_dependency 'gir_ffi', '~> 0.15.2'
+  spec.add_runtime_dependency 'gstreamer', '~> 3.4'
+  spec.add_runtime_dependency 'gtk3', '~> 3.4'
+  spec.add_runtime_dependency 'mojinizer', '~> 0.2.2'
+  spec.add_runtime_dependency 'pango', '~> 3.4'
 end

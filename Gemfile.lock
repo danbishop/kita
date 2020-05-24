@@ -1,3 +1,14 @@
+PATH
+  remote: .
+  specs:
+    kita (0.5.2)
+      config (~> 2.2)
+      gir_ffi (~> 0.15.2)
+      gstreamer (~> 3.4)
+      gtk3 (~> 3.4)
+      mojinizer (~> 0.2.2)
+      pango (~> 3.4)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -107,12 +118,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  config (~> 2.2)
-  gir_ffi (~> 0.15.2)
-  gstreamer (~> 3.4)
-  gtk3 (~> 3.4)
-  mojinizer (~> 0.2.2)
-  pango (~> 3.4)
+  kita!
   rake (~> 13.0)
   rspec (~> 3.9)
 
