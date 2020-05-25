@@ -31,14 +31,33 @@ parts:
       - libgirepository-1.0-1
       - gir1.2-gstreamer-1.0
       - gstreamer1.0-plugins-base
+      # Just trying these to see if it makes sound work
+      - libpulse0
+      - libpulse-mainloop-glib0
+      - libslang2
+      - libgpm2
+      - libasound2
 
 apps:
   kita:
     command: bin/kita
     extensions: [gnome-3-28]
+    environment:
+      LD_LIBRARY_PATH: $LD_LIBRARY_PATH:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio
     plugs:
       - desktop
+      - desktop-legacy
+      - gsettings
       - wayland
+      - x11
       - audio-playback
-      # - pulseaudio
+      - home
+    slots:
+      - dbus-daemon
     common-id: uk.danbishop.kita
+
+slots:
+  dbus-daemon:
+    interface: dbus
+    bus: session
+    name: uk.danbishop.kita

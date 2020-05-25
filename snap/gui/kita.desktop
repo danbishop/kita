@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Kita
+GenericName=Kita
+X-GNOME-FullName=Kita
+Comment=Learn the Japanese kana
+Keywords=Japanese;kana;hiragana;katakana;learn;
+Exec=kita
+Terminal=false
+Type=Application
+Icon=${SNAP}/meta/gui/kita.svg

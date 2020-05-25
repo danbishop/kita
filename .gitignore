@@ -8,6 +8,7 @@ vendor
 /coverage/
 /doc/
 /pkg/
+/prime/
 /spec/reports/
 /tmp/
 

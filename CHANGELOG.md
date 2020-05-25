@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Changed
 
+## 2020-05-25
+### Changed
+- Improved sounds, neither へ nor は are pronounced in their particle form (e and wa).
+
 ## 2020-05-24
 ### Added
 - First release
