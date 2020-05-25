@@ -10,9 +10,13 @@ Gem::Specification.new do |spec|
   spec.license       = 'GPLv3+'
 
   spec.summary       = 'A Japanese kana learning tool.'
-  spec.description   = 'A simple tool to help Japanese language learners with hiragana and katakana.'
+  spec.description   = <<-DESC
+    A simple GTK3 app to help Japanese language learners with Hiragana and Katakana. It introduces
+    users to the sounds of the kana and teaches basic recognition of both writing systems.
+  DESC
+
   spec.homepage      = 'https://www.danbishop.org'
-  spec.required_ruby_version = Gem::Requirement.new('>= 2.3.0')
+  spec.required_ruby_version = Gem::Requirement.new('>= 2.5.0')
 
   spec.metadata['homepage_uri'] = spec.homepage
   spec.metadata['source_code_uri'] = 'https://github.com/danbishop/kita'
