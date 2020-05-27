@@ -1,9 +1,9 @@
 # frozen_string_literal: true
+
 require 'gtk3'
 require_relative 'kita/audio'
 require_relative 'kita/config'
-require_relative 'kita/hiragana'
-require_relative 'kita/katakana'
+require_relative 'kita/question'
 require_relative 'kita/version'
 
 module Kita
@@ -14,11 +14,8 @@ module Kita
       builder_file = "#{File.expand_path(File.dirname(__dir__))}/ui/builder.ui"
       # Construct a Gtk::Builder instance and load our UI description
       @builder = Gtk::Builder.new(file: builder_file)
-      # Initiate Hiragana class
-      @hiragana = Hiragana.new
-      # Initiate Katakana class
-      @katakana = Katakana.new
-      @types = [@hiragana]
+      # Initiate Question class
+      @question = Question.new
       @button_signals = {}
       @sound = Audio.new
       new_question
@@ -81,19 +78,13 @@ module Kita
     end
 
     def toggle_katakana
-      # TODO: Switch this to using Settings
-      @types = []
-      @types << @hiragana if @hiragana_switch.active?
-      @types << @katakana if @katakana_switch.active?
-      (@hiragana_switch.set_active(true) && @types = [@hiragana]) if @types.empty?
+      Settings.katakana = !Settings.katakana
+      (@hiragana_switch.set_active(true) && Settings.hiragana = true) if !Settings.katakana && !Settings.hiragana
     end
 
     def toggle_hiragana
-      # TODO: Switch this to using Settings
-      @types = []
-      @types << @hiragana if @hiragana_switch.active?
-      @types << @katakana if @katakana_switch.active?
-      (@katakana_switch.set_active(true) && @types = [@katakana]) if @types.empty?
+      Settings.hiragana = !Settings.hiragana
+      (@katakana_switch.set_active(true) && Settings.katakana = true) if !Settings.katakana && !Settings.hiragana
     end
 
     def toggle_sound
@@ -111,7 +102,7 @@ module Kita
 
     def new_question
       reset_buttons
-      question = @types.sample.question
+      question = @question.new_question
       question_label = @builder.get_object('question')
       question_label.set_markup("<span font='72'>#{question[:question]}</span>")
       buttons = %w[a b c d]
@@ -144,7 +135,10 @@ module Kita
     def wrong_button_click(button)
       button.set_sensitive(false)
       label = button.child
-      label.set_markup("<span color='#d40000'>#{button.label} #{button.label.hiragana}</span>")
+      correction = @question.type == 'hiragana' ? button.label.hiragana : button.label.katakana
+      label.set_markup(
+        "<span color='#d40000'>#{button.label} #{correction}</span>"
+      )
     end
 
     def reset_buttons

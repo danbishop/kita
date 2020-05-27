@@ -48,6 +48,7 @@ class Katakana
   def build_question(chars)
     {
       question: chars[0],
+      type: 'katakana',
       answer: chars[0].hiragana,
       choices: [
         chars[1].hiragana,

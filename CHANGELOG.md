@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Changed
 
+## 2020-05-27
+### Changed
+- Selecting an incorrect answer for a Katakana question, shows the correct Katakana, rather than
+just repeating the Hiragana
+
 ## 2020-05-25
 ### Changed
 - Improved sounds, neither へ nor は are pronounced in their particle form (e and wa).

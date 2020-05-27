@@ -48,6 +48,7 @@ class Hiragana
   def build_question(chars)
     {
       question: chars[0],
+      type: 'hiragana',
       answer: chars[0].romaji,
       choices: [
         chars[1].romaji,
