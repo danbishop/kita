@@ -43,15 +43,13 @@ module Kita
     end
 
     def setup_new_question_button
-      new_question_button = @builder.get_object('new_question')
-      new_question_button.signal_connect('clicked') do
+      @builder.get_object('new_question').signal_connect('clicked') do
         new_question
       end
     end
 
     def setup_repeat_button
-      new_question_button = @builder.get_object('speak')
-      new_question_button.signal_connect('clicked') do
+      @builder.get_object('speak').signal_connect('clicked') do
         @sound.repeat
       end
     end
@@ -103,8 +101,7 @@ module Kita
     def new_question
       reset_buttons
       question = @question.new_question
-      question_label = @builder.get_object('question')
-      question_label.set_markup("<span font='72'>#{question[:question]}</span>")
+      @builder.get_object('question').set_markup("<span font='72'>#{question[:question]}</span>")
       buttons = %w[a b c d]
       correct_button(buttons, question)
       wrong_buttons(buttons, question)
