@@ -11,9 +11,8 @@ module Kita
   class Application < Gtk::Application
     def initialize
       super 'uk.danbishop.kita', :handles_open
-      builder_file = "#{File.expand_path(File.dirname(__dir__))}/ui/builder.ui"
       # Construct a Gtk::Builder instance and load our UI description
-      @builder = Gtk::Builder.new(file: builder_file)
+      @builder = Gtk::Builder.new(file: "#{File.expand_path(File.dirname(__dir__))}/ui/builder.ui")
       # Initiate Question class
       @question = Question.new
       @button_signals = {}
