@@ -13,14 +13,13 @@ module Kita
       super 'uk.danbishop.kita', :handles_open
       # Construct a Gtk::Builder instance and load our UI description
       @builder = Gtk::Builder.new(file: "#{File.expand_path(File.dirname(__dir__))}/ui/builder.ui")
+      @builder.connect_signals { |handler| method(handler) }
       # Initiate Question class
       @question = Question.new
       @button_signals = {}
       @sound = Audio.new
       new_question
       menu_setup
-      setup_new_question_button
-      setup_repeat_button
       build_main_window
     end
 
@@ -32,56 +31,44 @@ module Kita
     end
 
     def setup_about_box
-      about_box = @builder.get_object('about_box')
+      about_box = @builder['about_box']
       about_box.version = VERSION
-      about_button = @builder.get_object('menu_about')
-      about_button.signal_connect('clicked') do
+      @builder['menu_about'].signal_connect('clicked') do
         about_box.run
         about_box.hide
       end
     end
 
-    def setup_new_question_button
-      @builder.get_object('new_question').signal_connect('clicked') do
-        new_question
-      end
-    end
-
-    def setup_repeat_button
-      @builder.get_object('speak').signal_connect('clicked') do
-        @sound.repeat
-      end
+    def repeat_button_click
+      @sound.repeat
     end
 
     def setup_hiragana_switch
-      @hiragana_switch = @builder.get_object('hiragana_switch')
-      @hiragana_switch.signal_connect('notify::active') do
+      @builder['hiragana_switch'].signal_connect('notify::active') do
         toggle_hiragana
       end
     end
 
     def setup_katakana_switch
-      @katakana_switch = @builder.get_object('katakana_switch')
-      @katakana_switch.signal_connect('notify::active') do
+      @builder['katakana_switch'].signal_connect('notify::active') do
         toggle_katakana
       end
     end
 
     def setup_sound_switch
-      @sound_switch = @builder.get_object('sound_switch')
-      @sound_switch.signal_connect('notify::active') do
+      @builder['sound_switch'].signal_connect('notify::active') do
         toggle_sound
       end
     end
 
     def toggle_katakana
       Settings.katakana = !Settings.katakana
-      (@hiragana_switch.set_active(true) && Settings.hiragana = true) if !Settings.katakana && !Settings.hiragana
+      (@builder['hiragana_switch'].set_active(true) && Settings.hiragana = true) if !Settings.katakana && !Settings.hiragana
     end
 
     def toggle_hiragana
       Settings.hiragana = !Settings.hiragana
-      (@katakana_switch.set_active(true) && Settings.katakana = true) if !Settings.katakana && !Settings.hiragana
+      (@builder['katakana_switch'].set_active(true) && Settings.katakana = true) if !Settings.katakana && !Settings.hiragana
     end
 
     def toggle_sound
@@ -91,7 +78,7 @@ module Kita
     def build_main_window
       signal_connect :activate do
         # Connect signal handlers to the constructed widgets
-        window = @builder.get_object('window')
+        window = @builder['window']
         window.signal_connect('destroy') { Gtk.main_quit }
         window.present
       end
@@ -100,7 +87,7 @@ module Kita
     def new_question
       reset_buttons
       question = @question.new_question
-      @builder.get_object('question').set_markup("<span font='72'>#{question[:question]}</span>")
+      @builder['question'].set_markup("<span font='72'>#{question[:question]}</span>")
       buttons = %w[a b c d]
       correct_button(buttons, question)
       wrong_buttons(buttons, question)
@@ -111,7 +98,7 @@ module Kita
     def correct_button(buttons, question)
       # Choose random letter and remove it from array
       correct = buttons.delete(buttons.sample)
-      correct_button = @builder.get_object("answer_#{correct}")
+      correct_button = @builder["answer_#{correct}"]
       correct_button.set_label(question[:answer])
       correct_signal = correct_button.signal_connect('clicked') do
         new_question
@@ -141,7 +128,7 @@ module Kita
       return nil if @button_signals.empty?
 
       @button_signals.each do |letter, signal|
-        button = @builder.get_object("answer_#{letter}")
+        button = @builder["answer_#{letter}"]
         button.signal_handler_disconnect(signal)
         button.set_sensitive(true)
       end
