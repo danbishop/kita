@@ -91,8 +91,7 @@ module Kita
       buttons = %w[a b c d]
       correct_button(buttons, question)
       wrong_buttons(buttons, question)
-      puts "Playing: #{question[:question].hiragana}"
-      @sound.play(question[:question].hiragana) if Settings.speak
+      @sound.play("#{question[:question].hiragana}#{[1, 2].sample}") if Settings.speak
     end
 
     def correct_button(buttons, question)
