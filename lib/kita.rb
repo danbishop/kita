@@ -31,6 +31,7 @@ module Kita
     end
 
     def setup_about_box
+      @ee = 0
       about_box = @builder['about_box']
       about_box.version = VERSION
       @builder['menu_about'].signal_connect('clicked') do
@@ -73,6 +74,11 @@ module Kita
 
     def toggle_sound
       Settings.speak = !Settings.speak
+    end
+
+    def ee
+      @ee += 1
+      @sound.play('これは北です') if @ee == 3
     end
 
     def build_main_window

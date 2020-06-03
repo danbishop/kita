@@ -38,6 +38,7 @@ Author: Dan Bishop <d@nbishop.uk>
     <property name="artists">Dan Bishop &lt;d@nbishop.uk&gt;</property>
     <property name="logo">kita.svg</property>
     <property name="license_type">gpl-3-0</property>
+    <signal name="show" handler="ee" swapped="no"/>
     <child type="titlebar">
       <placeholder/>
     </child>
