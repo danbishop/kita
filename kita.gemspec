@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.version       = Kita::VERSION
   spec.authors       = ['Dan Bishop']
   spec.email         = ['d@nbishop.uk']
-  spec.license       = 'GPLv3+'
+  spec.license       = 'GPL-3.0+'
 
   spec.summary       = 'A Japanese kana learning tool.'
   spec.description   = <<-DESC
