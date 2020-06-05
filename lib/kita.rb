@@ -19,15 +19,8 @@ module Kita
       @button_signals = {}
       @sound = Audio.new
       new_question
-      menu_setup
-      build_main_window
-    end
-
-    def menu_setup
-      setup_hiragana_switch
-      setup_katakana_switch
-      setup_sound_switch
       setup_about_box
+      build_main_window
     end
 
     def setup_about_box
@@ -42,24 +35,6 @@ module Kita
 
     def repeat_button_click
       @sound.repeat
-    end
-
-    def setup_hiragana_switch
-      @builder['hiragana_switch'].signal_connect('notify::active') do
-        toggle_hiragana
-      end
-    end
-
-    def setup_katakana_switch
-      @builder['katakana_switch'].signal_connect('notify::active') do
-        toggle_katakana
-      end
-    end
-
-    def setup_sound_switch
-      @builder['sound_switch'].signal_connect('notify::active') do
-        toggle_sound
-      end
     end
 
     def toggle_katakana
