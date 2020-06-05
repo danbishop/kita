@@ -1,11 +1,7 @@
 PATH
   remote: .
   specs:
-<<<<<<< Updated upstream
-    kita (0.6.0)
-=======
     kita (0.6.1)
->>>>>>> Stashed changes
       config (~> 2.2)
       gir_ffi (~> 0.15.2)
       gstreamer (~> 3.4)

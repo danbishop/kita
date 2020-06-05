@@ -3,16 +3,22 @@
 require 'gtk3'
 require_relative 'kita/audio'
 require_relative 'kita/config'
+require_relative 'kita/menu'
 require_relative 'kita/question'
 require_relative 'kita/version'
 
 module Kita
   # Main application class
   class Application < Gtk::Application
+    include Menu
+
     def initialize
       super 'uk.danbishop.kita', :handles_open
-      # Construct a Gtk::Builder instance and load our UI description
+      # Construct a Gtk::Builder instance
       @builder = Gtk::Builder.new(file: "#{File.expand_path(File.dirname(__dir__))}/ui/builder.ui")
+      # Set menu toggles to match settings
+      menu_load
+      # Now connect signals
       @builder.connect_signals { |handler| method(handler) }
       # Initiate Question class
       @question = Question.new
@@ -40,15 +46,18 @@ module Kita
     def toggle_katakana
       Settings.katakana = !Settings.katakana
       (@builder['hiragana_switch'].set_active(true) && Settings.hiragana = true) if !Settings.katakana && !Settings.hiragana
+      save_settings
     end
 
     def toggle_hiragana
       Settings.hiragana = !Settings.hiragana
       (@builder['katakana_switch'].set_active(true) && Settings.katakana = true) if !Settings.katakana && !Settings.hiragana
+      save_settings
     end
 
     def toggle_sound
-      Settings.speak = !Settings.speak
+      Settings.sound = !Settings.sound
+      save_settings
     end
 
     def ee
@@ -72,7 +81,7 @@ module Kita
       buttons = %w[a b c d]
       correct_button(buttons, question)
       wrong_buttons(buttons, question)
-      @sound.play("#{question[:question].hiragana}#{[1, 2].sample}") if Settings.speak
+      @sound.play("#{question[:question].hiragana}#{[1, 2].sample}") if Settings.sound
     end
 
     def correct_button(buttons, question)
