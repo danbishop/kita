@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Changed
 
+## 2020-06-05
+### Changed
+- Settings are now saved
+
 ## 2020-06-02
 ### Added
 - Kita randomly selects between two different recordings for each kana

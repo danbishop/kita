@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.22.2
+<!-- Generated with glade 3.22.2 
 
 Copyright (C)
 
@@ -208,7 +208,7 @@ Author: Dan Bishop <d@nbishop.uk>
         <child>
           <object class="GtkModelButton" id="menu_about">
             <property name="visible">True</property>
-            <property name="can_focus">True</property>
+            <property name="can_focus">False</property>
             <property name="receives_default">True</property>
             <property name="margin_top">5</property>
             <property name="margin_bottom">5</property>
@@ -245,7 +245,8 @@ Author: Dan Bishop <d@nbishop.uk>
           <object class="GtkButton" id="new_question">
             <property name="label" translatable="yes">New</property>
             <property name="visible">True</property>
-            <property name="can_focus">True</property>
+            <property name="can_focus">False</property>
+            <property name="focus_on_click">False</property>
             <property name="receives_default">True</property>
             <property name="always_show_image">True</property>
             <signal name="clicked" handler="new_question" swapped="no"/>
@@ -254,7 +255,7 @@ Author: Dan Bishop <d@nbishop.uk>
         <child>
           <object class="GtkButton" id="speak">
             <property name="visible">True</property>
-            <property name="can_focus">True</property>
+            <property name="can_focus">False</property>
             <property name="receives_default">True</property>
             <signal name="clicked" handler="repeat_button_click" swapped="no"/>
             <child>
@@ -317,30 +318,15 @@ Author: Dan Bishop <d@nbishop.uk>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <child>
-              <object class="GtkButton" id="answer_a">
-                <property name="label">a</property>
+              <object class="GtkButton" id="answer_d">
+                <property name="label">d</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
                 <property name="hexpand">True</property>
-                <accelerator key="a" signal="clicked"/>
-                <accelerator key="KP_1" signal="clicked"/>
-                <accelerator key="1" signal="clicked"/>
-              </object>
-              <packing>
-                <property name="position">0</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtkButton" id="answer_b">
-                <property name="label">b</property>
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="receives_default">True</property>
-                <property name="hexpand">True</property>
-                <accelerator key="s" signal="clicked"/>
-                <accelerator key="KP_2" signal="clicked"/>
-                <accelerator key="2" signal="clicked"/>
+                <accelerator key="4" signal="clicked"/>
+                <accelerator key="KP_4" signal="clicked"/>
+                <accelerator key="f" signal="clicked"/>
               </object>
               <packing>
                 <property name="position">0</property>
@@ -353,24 +339,39 @@ Author: Dan Bishop <d@nbishop.uk>
                 <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
                 <property name="hexpand">True</property>
-                <accelerator key="d" signal="clicked"/>
-                <accelerator key="KP_3" signal="clicked"/>
                 <accelerator key="3" signal="clicked"/>
+                <accelerator key="KP_3" signal="clicked"/>
+                <accelerator key="d" signal="clicked"/>
               </object>
               <packing>
                 <property name="position">0</property>
               </packing>
             </child>
             <child>
-              <object class="GtkButton" id="answer_d">
-                <property name="label">d</property>
+              <object class="GtkButton" id="answer_b">
+                <property name="label">b</property>
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="receives_default">True</property>
                 <property name="hexpand">True</property>
-                <accelerator key="f" signal="clicked"/>
-                <accelerator key="KP_4" signal="clicked"/>
-                <accelerator key="4" signal="clicked"/>
+                <accelerator key="2" signal="clicked"/>
+                <accelerator key="KP_2" signal="clicked"/>
+                <accelerator key="s" signal="clicked"/>
+              </object>
+              <packing>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkButton" id="answer_a">
+                <property name="label">a</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="receives_default">True</property>
+                <property name="hexpand">True</property>
+                <accelerator key="1" signal="clicked"/>
+                <accelerator key="KP_1" signal="clicked"/>
+                <accelerator key="a" signal="clicked"/>
               </object>
               <packing>
                 <property name="position">0</property>
