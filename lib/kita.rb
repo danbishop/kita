@@ -4,14 +4,14 @@ require 'gtk3'
 require 'fast_gettext'
 require_relative 'kita/audio'
 require_relative 'kita/config'
-require_relative 'kita/locale'
+# require_relative 'kita/locale'
 require_relative 'kita/menu'
 require_relative 'kita/question'
 require_relative 'kita/version'
 
 # Main Kita Module
 module Kita
-  LocaleSettings.new
+  # LocaleSettings.new
   # Main application class
   class Application < Gtk::Application
     include Menu
