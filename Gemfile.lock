@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    kita (0.9.3)
+    kita (0.9.4)
       config (~> 2.2)
       fast_gettext (~> 2.0)
       gir_ffi (~> 0.15.2)
