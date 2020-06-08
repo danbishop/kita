@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    kita (0.9.0)
+    kita (0.9.1)
       config (~> 2.2)
       gir_ffi (~> 0.15.2)
       gstreamer (~> 3.4)
