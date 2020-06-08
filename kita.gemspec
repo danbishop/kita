@@ -9,13 +9,13 @@ Gem::Specification.new do |spec|
   spec.email         = ['d@nbishop.uk']
   spec.license       = 'GPL-3.0+'
 
+  spec.homepage      = 'https://www.danbishop.org'
   spec.summary       = 'A Japanese kana learning tool.'
   spec.description   = <<-DESC
     A simple GTK3 app to help Japanese language learners with Hiragana and Katakana. It introduces
     users to the sounds of the kana and teaches basic recognition of both writing systems.
   DESC
 
-  spec.homepage      = 'https://www.danbishop.org'
   spec.required_ruby_version = Gem::Requirement.new('>= 2.5.0')
 
   spec.metadata['homepage_uri'] = spec.homepage
@@ -32,6 +32,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
 
   spec.add_runtime_dependency 'config', '~> 2.2'
+  spec.add_runtime_dependency 'fast_gettext', '~> 2.0'
   spec.add_runtime_dependency 'gir_ffi', '~> 0.15.2'
   spec.add_runtime_dependency 'gstreamer', '~> 3.4'
   spec.add_runtime_dependency 'gtk3', '~> 3.4'
