@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Changed
 
+## 2020-06-08
+### Changed
+- Default settings now have sound on as was originally intended
+- Sound works in the snap package of the app
+
 ## 2020-06-05
 ### Changed
 - Settings are now saved
