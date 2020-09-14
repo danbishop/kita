@@ -8,9 +8,12 @@ It introduces users to the sounds of the kana and teaches basic recognition of b
 The easiest method is to install the snap. However, Kita is also available as a Ruby Gem.
 
 In order to install the gem version on Ubuntu, first install Ruby and the following libraries:
+
 `sudo apt install ruby ruby-dev build-essential`
 
-Now installation should be as simple as `sudo gem install kita`
+Now installation should be as simple as:
+
+`sudo gem install kita`
 
 You can now run `kita`
 
