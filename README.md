@@ -5,6 +5,13 @@ It introduces users to the sounds of the kana and teaches basic recognition of b
 
 ## Installation
 
-Installation should be as simple as `gem install kita`, however there is also a snap available.
+The easiest method is to install the snap. However, Kita is also available as a Ruby Gem.
+
+In order to install the gem version on Ubuntu, first install Ruby and the following libraries:
+`sudo apt install ruby ruby-dev build-essential`
+
+Now installation should be as simple as `sudo gem install kita`
+
+You can now run `kita`
 
 [![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/kita)
